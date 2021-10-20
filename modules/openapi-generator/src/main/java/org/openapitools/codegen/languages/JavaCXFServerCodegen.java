@@ -230,6 +230,8 @@ public class JavaCXFServerCodegen extends AbstractJavaJAXRSServerCodegen
                     ("src/main/webapp/WEB-INF"), "web.xml")
                 .doNotOverwrite());
         }
+        
+        supportsAdditionalPropertiesWithComposedSchema = true;
     }
 
     @Override

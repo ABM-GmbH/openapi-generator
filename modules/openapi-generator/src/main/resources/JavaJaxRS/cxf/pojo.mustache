@@ -177,14 +177,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
   {{/isReadOnly}}
 
   {{/vars}}
-
+{{>additionalProperties}}
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class {{classname}} {\n");
     {{#parent}}sb.append("    ").append(toIndentedString(super.toString())).append("\n");{{/parent}}
     {{#vars}}sb.append("    {{name}}: ").append(toIndentedString({{name}})).append("\n");
-    {{/vars}}sb.append("}");
+    {{/vars}}{{#additionalPropertiesType}}sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
+    {{/additionalPropertiesType}}sb.append("}");
     return sb.toString();
   }
 
